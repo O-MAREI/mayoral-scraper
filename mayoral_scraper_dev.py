@@ -8,7 +8,7 @@ headers = {
 }
 
 # Gennerating the candidate links file.
-""" 
+"""
 with open("electionLinks.txt") as file:
     electionLinks = file.read().splitlines()
 
@@ -26,7 +26,7 @@ for link in electionLinks:
             currentCandidates[i] = currentCandidates[i]["href"]
     
     if len(currentCandidates) != 0:
-        currentCandidates = [x for x in currentCandidates if x]
+        currentCandidates = list( dict.fromkeys(currentCandidates) )
         candidateLinks.append(currentCandidates)
 
 for links in candidateLinks:
@@ -36,8 +36,13 @@ for links in candidateLinks:
         else:
             print(link)
     print("-")
-"""
+    """
 with open("electionLinks.txt") as file:
     electionLinks = file.read().splitlines()
+
+with open("candidateLinks.txt") as file:
+    candidateLinks = file.read().splitlines()
+
+
 
 
